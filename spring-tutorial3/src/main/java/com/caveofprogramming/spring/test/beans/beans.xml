@@ -7,12 +7,16 @@
 
 	<bean id="logger" class="com.caveofprogramming.spring.test.Logger">
 	</bean>
+	
+	<bean name="consoleWriter"
+		class="com.caveofprogramming.spring.test.ConsoleWriter">
+	<qualifier value="toconsole"></qualifier>
+	</bean>
 
-	<bean name="consoleWriter" class="com.caveofprogramming.spring.test.ConsoleWriter">
+	<bean name="squirrel" class="com.caveofprogramming.spring.test.ConsoleWriter">
 	</bean>
-	
-	<bean name="fileWriter" class="com.caveofprogramming.spring.test.FileWriter">
+	<bean name="mo" class="com.caveofprogramming.spring.test.FileWriter">
 	</bean>
-	
+		
 	<context:annotation-config></context:annotation-config>
 </beans>
