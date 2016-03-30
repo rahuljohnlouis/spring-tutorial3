@@ -6,18 +6,19 @@ public class Logger {
 
 	@Autowired
 	private LogWriter consoleWriter;
+	@Autowired
 	private LogWriter fileWriter;
 
 	
-	@Autowired
-	public void setConsoleWriter(LogWriter consoleWriter) {
-		this.consoleWriter = consoleWriter;
-	}
 	
-	@Autowired
-	public void setFileWriter(LogWriter fileWriter) {
-		this.fileWriter = fileWriter;
-	}
+//	public void setConsoleWriter(LogWriter consoleWriter) {
+//		this.consoleWriter = consoleWriter;
+//	}
+	
+	
+//	public void setFileWriter(LogWriter fileWriter) {
+//		this.fileWriter = fileWriter;
+//	}
 	
 	public void writeFile(String text)
 	{
