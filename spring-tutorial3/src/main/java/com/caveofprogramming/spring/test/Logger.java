@@ -1,12 +1,9 @@
 package com.caveofprogramming.spring.test;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class Logger {
@@ -20,7 +17,7 @@ public class Logger {
 	}
 
 	@Inject
-	@Named(value="mo")
+	@Named(value = "mo")
 	public void setFileWriter(LogWriter fileWriter) {
 		this.fileWriter = fileWriter;
 	}
@@ -30,19 +27,7 @@ public class Logger {
 	}
 
 	public void writeConsole(String text) {
-		if(consoleWriter!=null)
+		if (consoleWriter != null)
 			consoleWriter.write(text);
-	}
-	
-	@PostConstruct
-	public void init()
-	{
-		System.out.println("init");
-	}
-	
-	@PreDestroy 
-	public void destroy()
-	{
-		System.out.println("Destroy");
 	}
 }
