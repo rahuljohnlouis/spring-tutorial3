@@ -1,21 +1,26 @@
 package com.caveofprogramming.spring.test;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.inject.Inject;
+import javax.inject.Named;
 
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class Logger {
 
 	private ConsoleWriter consoleWriter;
 	private LogWriter fileWriter;
 
-	@Autowired
-	@Qualifier("toconsole")
+	@Inject
 	public void setConsoleWriter(ConsoleWriter consoleWriter) {
 		this.consoleWriter = consoleWriter;
 	}
 
-	@Autowired
-	@Qualifier("filewriter")
+	@Inject
+	@Named(value="mo")
 	public void setFileWriter(LogWriter fileWriter) {
 		this.fileWriter = fileWriter;
 	}
@@ -27,5 +32,17 @@ public class Logger {
 	public void writeConsole(String text) {
 		if(consoleWriter!=null)
 			consoleWriter.write(text);
+	}
+	
+	@PostConstruct
+	public void init()
+	{
+		System.out.println("init");
+	}
+	
+	@PreDestroy 
+	public void destroy()
+	{
+		System.out.println("Destroy");
 	}
 }

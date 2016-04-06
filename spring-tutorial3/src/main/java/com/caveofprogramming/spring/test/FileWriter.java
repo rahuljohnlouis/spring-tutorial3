@@ -1,8 +1,11 @@
 package com.caveofprogramming.spring.test;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.inject.Named;
 
-@Qualifier("filewriter")
+import org.springframework.stereotype.Component;
+
+@Component
+@Named(value="mo")
 public class FileWriter implements LogWriter{
 	
 	public void write(String text)
